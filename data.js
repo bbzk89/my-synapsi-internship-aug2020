@@ -140,5 +140,3 @@ function download() {
         pom.click();
     }
 }
-
-//Sorry for sloppy table formatting inside txt but it's 1am
