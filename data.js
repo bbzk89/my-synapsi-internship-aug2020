@@ -24,7 +24,7 @@ class ParentProduct{
 }
 
 // _____________TASK #1_____________ //
-//currency const
+//creating const 'currency'
 const currency = ' PLN';
 
 //generating int number
@@ -32,7 +32,7 @@ function getGenNum(min, max){
     return Math.floor(Math.random() * (max - min) + min);
 }
 
-//generating amounts and prices
+//generating amounts and prices into 'products[]'
 for(let i=0;i<products.length;i++){
     let min = products[i]['amount']['min'];
     let max = products[i]['amount']['max'];
@@ -44,7 +44,7 @@ for(let i=0;i<products.length;i++){
 //checking if generating works
 //console.log(products[2].name, products[2].amount, products[2].price)
 
-//Product class 
+//creating Product class 
 class Product extends ParentProduct{
     constructor(name, amount, price) {
         super(name);
@@ -62,7 +62,7 @@ class Product extends ParentProduct{
     }
 }
 
-//creating products and filling with them obj_list
+//creating products and filling 'obj_list[]' with them 
 for(let i=0;i<products.length;i++){
     let amount = products[i]['amount'];
     let price = products[i]['price'];
@@ -77,14 +77,14 @@ obj_list[0].show_amount();
 obj_list[0].calculate_total_value();
 obj_list[0].show_name();*/
 
-//Value class
+//creating class 'Value'
 class Value{
     constructor(name, value){
     this.name = name;
     this.value = value;
 }}
 
-//filling val_list - table/list with values
+//filling val_list[] - table/list with values
 let val_list = [];
 for(let i=0;i<obj_list.length;i++){
     let numb = i+1;
@@ -94,10 +94,10 @@ for(let i=0;i<obj_list.length;i++){
 //  console.log(val_list[i].name, val_list[i].value);
 }
 
-//___converting into txt___
-let row_width = 40;
+//___converting into txt stored in 'content' variable___
 
-//import val_list into content
+//import val_list[] into content
+let row_width = 40;
 let content ='';
 content += "Product Name" + new Array(20).join(" ") + "Value\n";
 content += "********" + new Array(20).join(" ") + "   ********\n";
@@ -107,7 +107,7 @@ for (let i = 0; i < val_list.length; i++) {
     content += val_list[i].value;
     content += "\n";
 }
-//import obj_list into content
+//import obj_list[] into content
 content += "Product Name" + new Array(20).join(" ") + "Amount" + new Array(28).join(" ") + "Price\n";
 content += "********" + new Array(23).join(" ") +'********'+ new Array(25).join(" ")+ "********\n";
 for (let i = 0; i < obj_list.length; i++) {
@@ -116,7 +116,7 @@ for (let i = 0; i < obj_list.length; i++) {
     content += obj_list[i].price;
     content += "\n";
 }
-//import products into content
+//import products[] into content
 content += "Product Name" + new Array(20).join(" ") + "Amount" + new Array(28).join(" ") + "Price\n";
 content += "********" + new Array(23).join(" ") +'********'+ new Array(25).join(" ")+ "********\n";
 for (let i = 0; i < obj_list.length; i++) {
@@ -125,7 +125,7 @@ for (let i = 0; i < obj_list.length; i++) {
     content += products[i].price;
     content += "\n";
 }
-//Download function
+//Download 'results_01.txt' function
 function download() {
     let pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
